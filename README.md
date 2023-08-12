@@ -1,12 +1,12 @@
-# Api-Twitch-Moderation
-API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear palavras e muito mais;
+# Módulo-Twitch-Moderation
+Biblioteca para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear palavras e muito mais;
 
 ### Antes de começar a instalação, é importante ter em mente alguns pontos:
-- Esta API não inclui um chat bot completo por si só. Você precisará utilizar outras bibliotecas para desenvolver o bot de chat. Recomendamos a biblioteca tmi.js, que também é usada em outro projeto. Se você já tem experiência em criar bots para a Twitch, sabe que a Twitch agora exige que solicitações sejam feitas para usar determinadas funcionalidades no bot de chat.
+- Este módulo não inclui um chat bot completo por si só. Você precisará utilizar outras bibliotecas para desenvolver o bot de chat. Recomendamos a biblioteca tmi.js, que também é usada em outro projeto. Se você já tem experiência em criar bots para a Twitch, sabe que a Twitch agora exige que solicitações sejam feitas para usar determinadas funcionalidades no bot de chat.
 
-- Esta API se concentra nas funcionalidades de moderação, como banir, desbanir, bloquear palavras, entre outras. Ela fornece as ferramentas necessárias para interagir com a API da Twitch e implementar essas funcionalidades em seu chat bot.
+- Este módulo se concentra nas funcionalidades de moderação, como banir, desbanir, bloquear palavras, entre outras. Ele fornece as ferramentas necessárias para interagir com a plataforma da Twitch e implementar essas funcionalidades em seu chat bot.
 
-- Lembre-se de que esta API é uma ferramenta poderosa para aprimorar a moderação e funcionalidades do seu bot na Twitch. Vamos prosseguir com a instalação e configuração para que você possa começar a usar essas funcionalidades em seu projeto.
+- Lembre-se de que este módulo é uma ferramenta poderosa para aprimorar a moderação e funcionalidades do seu bot na Twitch. Vamos prosseguir com a instalação e configuração para que você possa começar a usar essas funcionalidades em seu projeto.
 
 ## Passo 1: Configuração da Conta no Twitch Developer
 - Acesse o site do Twitch Developer em seu navegador.
@@ -30,10 +30,10 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
     
     ![Imagem do Twitch](https://i.imgur.com/lO2Ilej.jpg)
 
-    - Depois de registrar o aplicativo, você receberá um Client-ID único. Anote este Client-ID, pois você precisará dele para fazer solicitações à API da Twitch.
+    - Depois de registrar o aplicativo, você receberá um Client-ID único. Anote este Client-ID, pois você precisará dele para fazer solicitações à plataforma da Twitch.
 
 ## Passo 3: Autorização e Geração do Token
-- Neste passo, você irá utilizar o Client-ID que registrou no passo anterior para gerar um token de acesso que será utilizado para fazer solicitações à API da Twitch. Siga as instruções abaixo:
+- Neste passo, você irá utilizar o Client-ID que registrou no passo anterior para gerar um token de acesso que será utilizado para fazer solicitações à plataforma da Twitch. Siga as instruções abaixo:
   - Abra seu navegador e acesse o URL de autorização.
   - Na URL a seguir, substitua "SEU_CLIENT_ID_AQUI" pelo Client-ID que você registrou anteriormente e "SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP" pela URL do seu aplicativo que você cadastrou:
     ```
@@ -46,19 +46,18 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
     ![Imagem do Twitch](https://i.imgur.com/80qOIHt.jpg)
 
 ## Passo 4: Token de Acesso
-- Após a autorização bem-sucedida e o redirecionamento para a URL especificada no seu aplicativo, você receberá um corpo de resposta contendo o seu token de acesso. Esse token é essencial para realizar ações com o seu bot e utilizar a API deste projeto. É importante manter esse token em sigilo e não compartilhá-lo com terceiros, pois ele concede acesso às funcionalidades do seu aplicativo.
+- Após a autorização bem-sucedida e o redirecionamento para a URL especificada no seu aplicativo, você receberá um corpo de resposta contendo o seu token de acesso. Esse token é essencial para realizar ações com o seu bot e utilizar as funcionalidades deste módulo. É importante manter esse token em sigilo e não compartilhá-lo com terceiros, pois ele concede acesso às funcionalidades do seu aplicativo.
 
-
-# Próxima Etapa: Como vou utilizar essa Api agora?
-- Antes de começar a usar as funcionalidades de moderação da API, você precisa configurar um código base para se conectar ao chat do canal específico e receber eventos de mensagens do chat. Siga os passos abaixo:
+# Próxima Etapa: Como vou utilizar esse Módulo agora?
+- Antes de começar a usar as funcionalidades de moderação do módulo, você precisa configurar um código base para se conectar ao chat do canal específico e receber eventos de mensagens do chat. Siga os passos abaixo:
 
 1. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
 
 2. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
    ``` npm i tmi.js ```
 
-3. Agora faremos o tal do "código base", no código abaixo utilizamos a função para banir um usúario no chat:
-```
+3. Agora faremos o código base, no exemplo abaixo utilizamos a função para banir um usuário no chat:
+```javascript
 // Adicione as informações conforme a instalação anterior
 const SEU_TOKEN_TWITCH = 'SEU_TOKEN_AQUI'
 const SEU_CLIENT_ID = 'SEU_CLIENT_ID_AQUI'
@@ -73,14 +72,14 @@ const twitch = require('tmi.js').Client({
     channels: ['CANAL_QUE_VOCE_VAI_ADICIONAR_O_BOT']
 })
 
-// Importação da biblioteca TwitchModerationAPI
-const TwitchModerationAPI = require('./ModerationApi')
+// Importação do MóduloTwitchModeration
+const MóduloTwitchModeration = require('./MóduloTwitchModeration')
 
 // Evento principal para receber mensagens do chat e aplicar moderação
 twitch.on('message', (canalTwitch, tags, message, selfBot) => {
-canalTwitch = canalTwitch.replace('#', '')
-    // Instanciando a biblioteca TwitchModerationAPI
-    const twitchModeration = new TwitchModerationAPI(SEU_TOKEN_TWITCH, SEU_CLIENT_ID)
+    canalTwitch = canalTwitch.replace('#', '')
+    // Instanciando o módulo MóduloTwitchModeration
+    const twitchModeration = new MóduloTwitchModeration(SEU_TOKEN_TWITCH, SEU_CLIENT_ID)
 
     // Nome de usuário do seu bot (por exemplo: joxsbot)
     const NOME_DE_USUARIO_DO_SEU_BOT = 'NOME_CORRETO_DO_USER_DO_SEU_BOT_NA_TWITCH'
@@ -88,12 +87,11 @@ canalTwitch = canalTwitch.replace('#', '')
     
     // Verificando se a mensagem começa com "!ban"
     if (message.toLowerCase().startsWith('!ban')) {
-        // Chamando o método BanUser da biblioteca TwitchModerationAPI
+        // Chamando o método BanUser do módulo MóduloTwitchModeration
         twitchModeration.BanUser(canalTwitch, `${NOME_DE_USUARIO_DO_SEU_BOT}`, `${USER_PARA_BANIR}`)
     }
 })
 
 // Conectando o bot ao chat da Twitch
 twitch.connect().then(() => console.log('Bot conectado ao chat da Twitch!'))
-
 ```
