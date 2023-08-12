@@ -2,7 +2,6 @@
 API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear palavras e muito mais;
 
 ### Antes de começar a instalação, é importante ter em mente alguns pontos:
-
 - Esta API não inclui um chat bot completo por si só. Você precisará utilizar outras bibliotecas para desenvolver o bot de chat. Recomendamos a biblioteca tmi.js, que também é usada em outro projeto. Se você já tem experiência em criar bots para a Twitch, sabe que a Twitch agora exige que solicitações sejam feitas para usar determinadas funcionalidades no bot de chat.
 
 - Esta API se concentra nas funcionalidades de moderação, como banir, desbanir, bloquear palavras, entre outras. Ela fornece as ferramentas necessárias para interagir com a API da Twitch e implementar essas funcionalidades em seu chat bot.
