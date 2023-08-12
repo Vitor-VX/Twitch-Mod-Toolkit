@@ -16,4 +16,4 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 - Localize a opção para autorizar como desenvolvedor.
 - Clique em "Autorizar" para ativar o status de desenvolvedor para sua conta.
 - Agora você está pronto para utilizar a API da Twitch e prosseguir com as próximas etapas do seu projeto.
-![Imagem do Twitch]([url_da_sua_imagem_aqui](https://imgur.com/UBgHbKB)
+![Imagem do Twitch]([url_da_sua_imagem_aqui](https://i.imgur.com/UBgHbKB.jpg))
