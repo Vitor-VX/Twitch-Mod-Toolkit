@@ -66,3 +66,15 @@ https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=SEU_CLIENT_I
 - Copie o token da URL, ele estará após o trecho "#access_token=".
 
 - Agora você possui um token de acesso válido que pode ser utilizado para fazer solicitações à API da Twitch em nome do seu aplicativo. Lembre-se de que este token possui um período de validade, portanto, é necessário renová-lo conforme necessário para continuar usando a API.
+
+# Passo 4: Autorização e Redirecionamento
+
+-Depois de substituir o Client-ID e a URL do seu aplicativo no URL de autorização fornecido anteriormente, siga as etapas abaixo:
+
+-Após acessar o URL de autorização com as devidas substituições, você será redirecionado para uma página de autorização da Twitch como essa:
+
+![Imagem do Twitch](https://i.imgur.com/CLONS6v.jpg)
+
+- Nesta página, clique novamente no botão "Autorizar" para conceder permissões ao seu aplicativo.
+
+- Após clicar em "Autorizar", você será redirecionado para a URL que você especificou no seu aplicativo (por exemplo, seu portfólio).
