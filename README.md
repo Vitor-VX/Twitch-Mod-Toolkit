@@ -1,6 +1,7 @@
 # Api-Twitch-Moderation
 API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear palavras e muito mais
 
+![Imagem do Twitch]([url_da_sua_imagem_aqui](https://imgur.com/UBgHbKB))
 
 # Passo 1: Configuração da Conta no Twitch Developer
 - Acesse o site do Twitch Developer em seu navegador.
