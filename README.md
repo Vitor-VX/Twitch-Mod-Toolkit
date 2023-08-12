@@ -77,4 +77,9 @@ https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=SEU_CLIENT_I
 
 - Nesta página, clique novamente no botão "Autorizar" para conceder permissões ao seu aplicativo.
 
-- Após clicar em "Autorizar", você será redirecionado para a URL que você especificou no seu aplicativo (por exemplo, seu portfólio).
+- Após clicar em "Autorizar", você será redirecionado para a URL que você especificou no seu aplicativo (por exemplo, meu portfólio).
+
+# Passo 5: Recebendo o Token de Acesso
+- Após a autorização bem-sucedida e o redirecionamento para a URL especificada no seu aplicativo, você receberá um corpo de resposta contendo o seu token de acesso. Esse token é essencial para realizar ações com o seu bot e utilizar a API deste projeto. É importante manter esse token em sigilo e não compartilhá-lo com terceiros, pois ele concede acesso às funcionalidades do seu aplicativo.
+
+![Imagem do Twitch](https://i.imgur.com/80qOIHt.jpg)
