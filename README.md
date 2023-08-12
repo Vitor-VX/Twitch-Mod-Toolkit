@@ -48,21 +48,21 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 - Agora você está pronto para usar o Client-ID e continuar com as próximas etapas de configuração da API.
 
 # Passo 3: Autorização e Geração do Token
-Neste passo, você irá utilizar o Client-ID que registrou no passo anterior para gerar um token de acesso que será utilizado para fazer solicitações à API da Twitch. Siga as instruções abaixo:
+-Neste passo, você irá utilizar o Client-ID que registrou no passo anterior para gerar um token de acesso que será utilizado para fazer solicitações à API da Twitch. Siga as instruções abaixo:
 
-Abra seu navegador e acesse o seguinte URL: 
+- Abra seu navegador e acesse o seguinte URL: 
 
 ```
 https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=SEU_CLIENT_ID_AQUI&redirect_uri=SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP&scope=chat:read+chat:edit+channel:moderate+whispers:read+whispers:edit+channel_editor+moderator:manage:banned_users+moderation:read+moderator:manage:banned_users+moderator:manage:chat_messages+moderator:read:chatters+moderator:manage:blocked_terms+moderator:manage:chat_messages
 ```
-Na URL, substitua "SEU_CLIENT_ID_AQUI" pelo Client-ID que você registrou anteriormente.
+- Na URL, substitua "SEU_CLIENT_ID_AQUI" pelo Client-ID que você registrou anteriormente.
 
-Substitua "SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP" pela URL do seu aplicativo que você cadastrou.
+- Substitua "SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP" pela URL do seu aplicativo que você cadastrou.
 
-A URL formatada irá direcioná-lo para uma página de autorização da Twitch. Faça login com sua conta.
+- A URL formatada irá direcioná-lo para uma página de autorização da Twitch. Faça login com sua conta.
 
-Após autorizar o acesso, você será redirecionado para a URL que você especificou no seu aplicativo, contendo o token de acesso na URL.
+- Após autorizar o acesso, você será redirecionado para a URL que você especificou no seu aplicativo, contendo o token de acesso na URL.
 
-Copie o token da URL, ele estará após o trecho "#access_token=".
+- Copie o token da URL, ele estará após o trecho "#access_token=".
 
-Agora você possui um token de acesso válido que pode ser utilizado para fazer solicitações à API da Twitch em nome do seu aplicativo. Lembre-se de que este token possui um período de validade, portanto, é necessário renová-lo conforme necessário para continuar usando a API.
+- Agora você possui um token de acesso válido que pode ser utilizado para fazer solicitações à API da Twitch em nome do seu aplicativo. Lembre-se de que este token possui um período de validade, portanto, é necessário renová-lo conforme necessário para continuar usando a API.
