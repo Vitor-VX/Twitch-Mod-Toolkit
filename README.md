@@ -51,12 +51,17 @@ Biblioteca para Chat Bot da Twitch: inclui funções para banir, desbanir, bloqu
 # Próxima Etapa: Como vou utilizar esse Módulo agora?
 - Antes de começar a usar as funcionalidades de moderação do módulo, você precisa configurar um código base para se conectar ao chat do canal específico e receber eventos de mensagens do chat. Siga os passos abaixo:
 
-1. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
+1. Caso ainda não tenha instalado a biblioteca utilize:
+```
+npm i twitch-moderation-bot --global
+```
 
-2. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
+3. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
+
+4. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
    ``` npm i tmi.js ```
 
-3. Agora faremos o código base, no exemplo abaixo utilizamos a função para banir um usuário no chat:
+5. Agora faremos o código base, no exemplo abaixo utilizamos a função para banir um usuário no chat:
 ```javascript
 // Adicione as informações conforme a instalação anterior
 const SEU_TOKEN_TWITCH = 'SEU_TOKEN_AQUI'
