@@ -72,8 +72,8 @@ const twitch = require('tmi.js').Client({
     channels: ['CANAL_QUE_VOCE_VAI_ADICIONAR_O_BOT']
 })
 
-// Importação do MóduloTwitchModeration
-const ModuloTwitchModeration = require('./ModuloTwitchModeration')
+// Importação do MóduloTwitchModeration -> npm i twitch-moderation-bot --global
+const ModuloTwitchModeration = require('twitch-moderation-bot')
 
 // Evento principal para receber mensagens do chat e aplicar moderação
 twitch.on('message', (canalTwitch, tags, message, selfBot) => {
