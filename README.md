@@ -40,3 +40,6 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 
 ## Passo 4: Token de Acesso
 - Após a autorização bem-sucedida e o redirecionamento para a URL especificada no seu aplicativo, você receberá um corpo de resposta contendo o seu token de acesso. Esse token é essencial para realizar ações com o seu bot e utilizar a API deste projeto. É importante manter esse token em sigilo e não compartilhá-lo com terceiros, pois ele concede acesso às funcionalidades do seu aplicativo.
+
+
+### Próxima Etapa: Como vou utilizar essa Api agora?
