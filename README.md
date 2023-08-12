@@ -59,10 +59,11 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 
 3. Agora faremos o tal do "código base":
 ```
-// Adcione as infos que conforme na instalação passada
-const SEU_TOKEN_TWITCH = ''
-const SEU_CLIENT_ID = ''
+// Adicione as informações conforme a instalação anterior
+const SEU_TOKEN_TWITCH = 'SEU_TOKEN_AQUI'
+const SEU_CLIENT_ID = 'SEU_CLIENT_ID_AQUI'
 
+// Importação da biblioteca tmi.js
 const twitch = require('tmi.js').Client({
     options: { debug: true },
     identity: {
@@ -72,24 +73,27 @@ const twitch = require('tmi.js').Client({
     channels: ['CANAL_QUE_VOCE_VAI_ADICIONAR_O_BOT']
 })
 
-// Aqui importamos a biblioteca
+// Importação da biblioteca TwitchModerationAPI
 const TwitchModerationAPI = require('./ModerationApi')
 
-// Evento principal -> Receber mensagens do chat -> Aqui que você irá utilizar os metodos
+// Evento principal para receber mensagens do chat e aplicar moderação
 twitch.on('message', (canalTwitch, tags, message, selfBot) => {
+canalTwitch = canalTwitch.replace('#', '')
+    // Instanciando a biblioteca TwitchModerationAPI
+    const twitchModeration = new TwitchModerationAPI(SEU_TOKEN_TWITCH, SEU_CLIENT_ID)
 
-    // Instanciando a biblioteca
-    const twitchModeration = new TwitchModerationAPI(SEU_TOKEN_TWITCH, SEU_CLIENT_ID) // Voce precisa passar os 2 paramentros SEU_TOKEN_TWITCH && SEU_CLIENT_ID
-
-    // Aqui você PRECISA passar o nome correto do seu MOD_BOT -> nome do seu bot(por exemplo: joxsbot)
-    const NOME_DE_USUARIO_DO_SEU_BOT = 'NOME_CORRETO_DO_USER_DO_SEU_BOT_NA_TWITCH' 
+    // Nome de usuário do seu bot (por exemplo: joxsbot)
+    const NOME_DE_USUARIO_DO_SEU_BOT = 'NOME_CORRETO_DO_USER_DO_SEU_BOT_NA_TWITCH'
     const USER_PARA_BANIR = 'USER_QUE_VOCE_DESEJA_BANIR'
     
-    // Aqui fazemos uma condção para quando algum user utilizar "!ban" o nome na constante "USER_PARA_BANIR" -> vai ser banido
+    // Verificando se a mensagem começa com "!ban"
     if (message.toLowerCase().startsWith('!ban')) {
-        twitchModeration.BanUser(canalTwitch.replace('#', ''), `${NOME_DE_USUARIO_DO_SEU_BOT}`, `${USER_PARA_BANIR}`) //Essa funcao recebe 3 paramentros(o ultimo adicional), sendo o primeiro -> o NOME_DE_USUARIO_DO_SEU_BOT && USER_PARA_BANIR
+        // Chamando o método BanUser da biblioteca TwitchModerationAPI
+        twitchModeration.BanUser(canalTwitch, `${NOME_DE_USUARIO_DO_SEU_BOT}`, `${USER_PARA_BANIR}`)
     }
 })
 
-twitch.connect().then(() => console.log('Bot conectado ao chat da twitch!'))
+// Conectando o bot ao chat da Twitch
+twitch.connect().then(() => console.log('Bot conectado ao chat da Twitch!'))
+
 ```
