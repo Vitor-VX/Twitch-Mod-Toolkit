@@ -1,5 +1,15 @@
 # Api-Twitch-Moderation
-API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear palavras e muito mais
+API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear palavras e muito mais;
+
+# Antes da Instalação: Algumas Informações
+
+ ### Antes de começar a instalação, é importante ter em mente alguns pontos:
+
+- Esta API não inclui um chat bot completo por si só. Você precisará utilizar outras bibliotecas para desenvolver o bot de chat. Recomendamos a biblioteca tmi.js, que também é usada em outro projeto. Se você já tem experiência em criar bots para a Twitch, sabe que a Twitch agora exige que solicitações sejam feitas para usar determinadas funcionalidades no bot de chat.
+
+- Esta API se concentra nas funcionalidades de moderação, como banir, desbanir, bloquear palavras, entre outras. Ela fornece as ferramentas necessárias para interagir com a API da Twitch e implementar essas funcionalidades em seu chat bot.
+
+- Lembre-se de que esta API é uma ferramenta poderosa para aprimorar a moderação e funcionalidades do seu bot na Twitch. Vamos prosseguir com a instalação e configuração para que você possa começar a usar essas funcionalidades em seu projeto.
 
 ## Passo 1: Configuração da Conta no Twitch Developer
 - Acesse o site do Twitch Developer em seu navegador.
@@ -43,3 +53,4 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 
 
 # Próxima Etapa: Como vou utilizar essa Api agora?
+- Primeiro você tem que ter em mente, que essa api não faz nenhum chat bot, voce precisa utilizar outras bibliotecas, recomendo o tmi-js, que estou ate utilizando em um outro projeto, 
