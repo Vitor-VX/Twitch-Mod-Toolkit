@@ -34,13 +34,9 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
     ```
   - A URL formatada irá direcioná-lo para uma página de autorização da Twitch. Faça login com sua conta.
   - Após autorizar o acesso, você será redirecionado para a URL que você especificou no seu aplicativo, contendo o token de acesso na URL.
-  - Copie o token da URL, ele estará após o trecho "#access_token=".
+  - Copie o token da URL, ele estará após o trecho "#access_token=", como na imagem abaixo:
 
-## Passo 4: Autorização e Redirecionamento
-- Depois de substituir o Client-ID e a URL do seu aplicativo no URL de autorização fornecido anteriormente, siga as etapas abaixo:
-  - Após acessar o URL de autorização com as devidas substituições, você será redirecionado para uma página de autorização da Twitch.
-  - Nesta página, clique novamente no botão "Autorizar" para conceder permissões ao seu aplicativo.
-  - Após clicar em "Autorizar", você será redirecionado para a URL que você especificou no seu aplicativo.
+    ![Imagem do Twitch](https://i.imgur.com/80qOIHt.jpg)
 
-## Passo 5: Recebendo o Token de Acesso
+## Passo 4: Token de Acesso
 - Após a autorização bem-sucedida e o redirecionamento para a URL especificada no seu aplicativo, você receberá um corpo de resposta contendo o seu token de acesso. Esse token é essencial para realizar ações com o seu bot e utilizar a API deste projeto. É importante manter esse token em sigilo e não compartilhá-lo com terceiros, pois ele concede acesso às funcionalidades do seu aplicativo.
