@@ -57,7 +57,7 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 2. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
    ``` npm i tmi.js ```
 
-3. Agora faremos o tal do "código base":
+3. Agora faremos o tal do "código base", no código abaixo utilizamos a função para banir um usúario no chat:
 ```
 // Adicione as informações conforme a instalação anterior
 const SEU_TOKEN_TWITCH = 'SEU_TOKEN_AQUI'
