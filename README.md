@@ -53,7 +53,7 @@ Biblioteca para Chat Bot da Twitch: inclui funções para banir, desbanir, bloqu
 
 1. Caso ainda não tenha instalado a biblioteca utilize:
 ```
-npm i twitch-moderation-bot --global
+npm i twitch-moderation-tools --g
 ```
 
 3. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
@@ -77,8 +77,8 @@ const twitch = require('tmi.js').Client({
     channels: ['CANAL_QUE_VOCE_VAI_ADICIONAR_O_BOT']
 })
 
-// Importação do MóduloTwitchModeration -> npm i twitch-moderation-bot --global
-const ModuloTwitchModeration = require('twitch-moderation-bot')
+// Importação do MóduloTwitchModeration -> npm i twitch-moderation-tools --g
+const ModuloTwitchModeration = require('twitch-moderation-tools')
 
 // Evento principal para receber mensagens do chat e aplicar moderação
 twitch.on('message', (canalTwitch, tags, message, selfBot) => {
