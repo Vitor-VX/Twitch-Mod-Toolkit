@@ -37,10 +37,12 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 
 - Complete os detalhes do aplicativo, incluindo nome, descrição e a URL do site. Garanta que a URL do site esteja funcional para a geração correta do token.
 
-- Na seção "OAuth Redirect URLs" (URLs de Redirecionamento do OAuth), adicione a URL do site onde você deseja que o token seja gerado.
+- Na seção "OAuth Redirect URLs" (URLs de Redirecionamento do OAuth), adicione a URL do site onde você deseja que o token seja gerado. No meu exemplo, fui bem 'criativo' e utilizei meu portfólio kk.
 
-- Após preencher os detalhes, clique no botão "Create" (Criar) para registrar o aplicativo.
+- Após preencher os detalhes, clique no botão "Create" (Criar) para registrar o aplicativo:
+
+![Imagem do Twitch](https://i.imgur.com/lO2Ilej.jpg)
 
 - Depois de registrar o aplicativo, você receberá um Client-ID único. Anote este Client-ID, pois você precisará dele para fazer solicitações à API da Twitch.
 
-- Agora você está pronto para usar o Client-ID e continuar com as próximas etapas de configuração da API. No meu exemplo, fui bem 'criativo' e utilizei meu portfólio kk.
+- Agora você está pronto para usar o Client-ID e continuar com as próximas etapas de configuração da API.
