@@ -18,4 +18,29 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 
 ![Imagem do Twitch](https://i.imgur.com/UBgHbKB.jpg)
 
-- Agora você está pronto para utilizar a API da Twitch e prosseguir com as próximas etapas do seu projeto.
+- Agora você está pronto para utilizar a API da Twitch e prosseguir com as próximas etapas do projeto.
+
+# Passo 2: Registro de Novo Aplicativo e Geração do Client-ID e Token
+- Agora é hora de registrar um novo aplicativo na plataforma Twitch Developer para obter seu Client-ID. Além disso, é fundamental especificar uma URL válida onde o token de acesso será gerado. Certifique-se de que o site esteja ativo, pois erros podem ocorrer durante as solicitações se a URL não estiver acessível.
+
+- Siga os passos abaixo para registrar seu aplicativo e obter o Client-ID e o token:
+
+- Acesse o site do Twitch Developer no seu navegador.
+
+- Faça login na sua conta do Twitch.
+
+- No painel de controle do desenvolvedor, clique na opção "Your Console" (Seu Console) no canto superior direito.
+
+- No menu de navegação, escolha a opção "Applications" (Aplicativos).
+
+- Clique no botão "Register Your Application" (Registrar Seu Aplicativo).
+
+- Complete os detalhes do aplicativo, incluindo nome, descrição e a URL do site. Garanta que a URL do site esteja funcional para a geração correta do token.
+
+- Na seção "OAuth Redirect URLs" (URLs de Redirecionamento do OAuth), adicione a URL do site onde você deseja que o token seja gerado.
+
+- Após preencher os detalhes, clique no botão "Create" (Criar) para registrar o aplicativo.
+
+- Depois de registrar o aplicativo, você receberá um Client-ID único. Anote este Client-ID, pois você precisará dele para fazer solicitações à API da Twitch.
+
+- Agora você está pronto para usar o Client-ID e continuar com as próximas etapas de configuração da API. No meu exemplo, fui bem 'criativo' e utilizei meu portfólio kk.
