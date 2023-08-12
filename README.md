@@ -73,13 +73,13 @@ const twitch = require('tmi.js').Client({
 })
 
 // Importação do MóduloTwitchModeration
-const MóduloTwitchModeration = require('./MóduloTwitchModeration')
+const ModuloTwitchModeration = require('./ModuloTwitchModeration')
 
 // Evento principal para receber mensagens do chat e aplicar moderação
 twitch.on('message', (canalTwitch, tags, message, selfBot) => {
     canalTwitch = canalTwitch.replace('#', '')
-    // Instanciando o módulo MóduloTwitchModeration
-    const twitchModeration = new MóduloTwitchModeration(SEU_TOKEN_TWITCH, SEU_CLIENT_ID)
+    // Instanciando o módulo ModuloTwitchModeration
+    const twitchModeration = new ModuloTwitchModeration(SEU_TOKEN_TWITCH, SEU_CLIENT_ID)
 
     // Nome de usuário do seu bot (por exemplo: joxsbot)
     const NOME_DE_USUARIO_DO_SEU_BOT = 'NOME_CORRETO_DO_USER_DO_SEU_BOT_NA_TWITCH'
