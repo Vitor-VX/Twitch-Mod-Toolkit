@@ -52,6 +52,6 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 # Próxima Etapa: Como vou utilizar essa Api agora?
 - Antes de começar a usar as funcionalidades de moderação da API, você precisa configurar um código base para se conectar ao chat do canal específico e receber eventos de mensagens do chat. Siga os passos abaixo:
 
-- 1. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
+1. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
 
-- 2. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
+2. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
