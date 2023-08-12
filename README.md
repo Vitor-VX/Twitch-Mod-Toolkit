@@ -55,3 +55,41 @@ API para Chat Bot da Twitch: inclui funções para banir, desbanir, bloquear pal
 1. Utilize uma biblioteca apropriada para interagir com o chat da Twitch. Recomendamos a biblioteca tmi.js, que é amplamente utilizada para esse propósito.
 
 2. Instale a biblioteca tmi.js em seu projeto utilizando o npm (Node Package Manager):
+   ``` npm i tmi.js ```
+
+3. Agora faremos o tal do "código base":
+```
+// Adcione as infos que conforme na instalação passada
+const SEU_TOKEN_TWITCH = ''
+const SEU_CLIENT_ID = ''
+
+const twitch = require('tmi.js').Client({
+    options: { debug: true },
+    identity: {
+        username: 'NOME_DO_SEU_BOT',
+        password: SEU_TOKEN_TWITCH
+    },
+    channels: ['CANAL_QUE_VOCE_VAI_ADICIONAR_O_BOT']
+})
+
+// Aqui importamos a biblioteca
+const TwitchModerationAPI = require('./ModerationApi')
+
+// Evento principal -> Receber mensagens do chat -> Aqui que você irá utilizar os metodos
+twitch.on('message', (canalTwitch, tags, message, selfBot) => {
+
+    // Instanciando a biblioteca
+    const twitchModeration = new TwitchModerationAPI(SEU_TOKEN_TWITCH, SEU_CLIENT_ID) // Voce precisa passar os 2 paramentros SEU_TOKEN_TWITCH && SEU_CLIENT_ID
+
+    // Aqui você PRECISA passar o nome correto do seu MOD_BOT -> nome do seu bot(por exemplo: joxsbot)
+    const NOME_DE_USUARIO_DO_SEU_BOT = 'NOME_CORRETO_DO_USER_DO_SEU_BOT_NA_TWITCH' 
+    const USER_PARA_BANIR = 'USER_QUE_VOCE_DESEJA_BANIR'
+    
+    // Aqui fazemos uma condção para quando algum user utilizar "!ban" o nome na constante "USER_PARA_BANIR" -> vai ser banido
+    if (message.toLowerCase().startsWith('!ban')) {
+        twitchModeration.BanUser(canalTwitch.replace('#', ''), `${NOME_DE_USUARIO_DO_SEU_BOT}`, `${USER_PARA_BANIR}`) //Essa funcao recebe 3 paramentros(o ultimo adicional), sendo o primeiro -> o NOME_DE_USUARIO_DO_SEU_BOT && USER_PARA_BANIR
+    }
+})
+
+twitch.connect().then(() => console.log('Bot conectado ao chat da twitch!'))
+```
