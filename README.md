@@ -100,3 +100,77 @@ twitch.on('message', (canalTwitch, tags, message, selfBot) => {
 // Conectando o bot ao chat da Twitch
 twitch.connect().then(() => console.log('Bot conectado ao chat da Twitch!'))
 ```
+# Funções
+
+## GetInfoUser(...nomeUserTwitch)
+- Obtém as IDs dos usuários do Twitch com base nos nomes de usuário fornecidos. Creio que você não irá utilizar, mais é uma otima ferramenta.
+
+```javascript
+twitchModeration.GetInfoUser('nomeUsuario1', 'nomeUsuario2');
+```
+
+## BanUser(channel, moderatorBot, userBanned, motivoBan)
+- Bane um usuário do chat.
+```javascript
+twitchModeration.BanUser('canal', 'bot', 'usuarioBanned', 'motivo do ban');
+``` 
+
+## unBanUser(channel, moderatorBot, userBanned)
+- Desbane um usuário previamente banido.
+```javascript
+twitchModeration.unBanUser('canal', 'bot', 'usuarioDesbanned');
+```
+
+## GetBlockedTerms(channel, moderatorBot, full)
+- Obtém os termos bloqueados no chat.
+```javascript
+twitchModeration.GetBlockedTerms('canal', 'bot').then(res => console.log(res))
+```
+
+## AddBlockedTerm(channel, moderatorBot, textBlock)
+- Adiciona um termo à lista de bloqueio.
+```javascript
+twitchModeration.AddBlockedTerm('canal', 'bot', 'palavraBloqueada');
+```
+
+## RemoveBlockedTerm(channel, moderatorBot, ...messageBlocks)
+- Remove termos da lista de bloqueio.
+```javascript
+twitchModeration.RemoveBlockedTerm('canal', 'bot', 'palavra1', 'palavra2');
+```
+
+## DeleteChatAllMessages(channel, moderatorBot)
+- Apaga todas as mensagens do chat.
+``` javascript
+twitchModeration.DeleteChatAllMessages('canal', 'bot');
+```
+
+## UpdateChatSettings(channel, moderatorBot, chatSettings)
+- Atualiza as configurações do chat.
+```javascript
+const settings = {
+    slow_mode: true,
+    slow_mode_wait_time: 10,
+    // ... outras configurações
+};
+
+/*
+config que podem ser passadas -> Api-Twitch
+      "slow_mode": true,
+      "slow_mode_wait_time": 10,
+      "follower_mode": false,
+      "follower_mode_duration": null,
+      "subscriber_mode": false,
+      "emote_mode": false,
+      "unique_chat_mode": false,
+      "non_moderator_chat_delay": false,
+      "non_moderator_chat_delay_duration": null
+
+*/
+twitchModeration.UpdateChatSettings('canal', 'bot', settings);
+```
+## SendWhisper(userModBot, userMSG, Msg)
+- Envia uma mensagem privada (whisper) para outro usuário. O usúario não pode está com o "sussuro" bloquado, se isso ocorre a mensagem não é enviada.
+```javascript
+twitchModeration.SendWhisper('modBot', 'user', 'Olá! Como você está?');
+```
