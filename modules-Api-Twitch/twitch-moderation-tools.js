@@ -4,7 +4,7 @@
     TODAS AS INFOS SÃO BASEADAS NA API OFICIAL DA TWTICH -> https://dev.twitch.tv/docs/api
 */
 const request = require('request');
-const POST = 'POST', GET = 'GET', DELETE = 'DELETE';
+const POST = 'POST', GET = 'GET', DELETE = 'DELETE', PATCH = 'PATCH';
 
 class TwitchModerationAPI {
     constructor(authToken, clientId) {
@@ -28,21 +28,6 @@ class TwitchModerationAPI {
             request(options, (error, response, body) => {
                 return console.log(body);
             });
-        }
-    }
-
-    async optionsREQ(url, method, headers, responseApi = true) {
-        const options = {
-            url: url,
-            method: method,
-            headers: headers
-        };
-
-        try {
-            const responseData = await this.requestTwitchApi(options, responseApi);
-            return responseData;
-        } catch (error) {
-            console.log(`Error: ${error}`);
         }
     }
 
@@ -178,6 +163,46 @@ class TwitchModerationAPI {
 
         await this.requestTwitchApi(options, false);
         console.log('Todas as mensagens do chat foram apagadas!');
+    }
+
+    async UpdateChatSettings(channel, moderatorBot, chatSettings = {}) {
+        const [resolvedChannel, resolvedModeratorBot] = await this.GetInfoUser(channel, moderatorBot);
+
+        const finalChatSettings = {
+            slow_mode: true,
+            slow_mode_wait_time: 3,
+            follower_mode: false,
+            follower_mode_duration: null,
+            subscriber_mode: false,
+            emote_mode: false,
+            unique_chat_mode: false,
+            non_moderator_chat_delay: false,
+            non_moderator_chat_delay_duration: null,
+            ...chatSettings
+        };
+
+        const options = {
+            url: `https://api.twitch.tv/helix/chat/settings?broadcaster_id=${resolvedChannel}&moderator_id=${resolvedModeratorBot}`,
+            method: PATCH,
+            headers: this.headers,
+            body: JSON.stringify(finalChatSettings)
+        };
+
+        await this.requestTwitchApi(options);
+    }
+
+    async SendWhisper(userModBot, userMSG, Msg) {
+        const [bot, user] = await this.GetInfoUser(userModBot, userMSG)
+        const options = {
+            url: `https://api.twitch.tv/helix/whispers?from_user_id=${bot}&to_user_id=${user}`,
+            method: POST,
+            headers: this.headers,
+            body: JSON.stringify({
+                'message': `${Msg}`
+            })
+        }
+
+        await this.requestTwitchApi(options).then(() => console.log(`Mensagem enviada com sucesso!`))
     }
 }
 
