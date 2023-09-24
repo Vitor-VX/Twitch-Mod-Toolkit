@@ -125,6 +125,20 @@ class TwitchModerationAPI {
         }
     }
 
+     async RemoveMessageChat(channel, moderatorBot, messageID) {
+        try {
+            const [resolvedChannel, resolvedModeratorBot] = await this.GetInfoUser(channel, moderatorBot);
+
+            const response = await axios.delete(`https://api.twitch.tv/helix/moderation/chat?broadcaster_id=${resolvedChannel}&moderator_id=${resolvedModeratorBot}&message_id=${messageID}`, {
+                headers: this.headers
+            })
+
+            return response.data
+        } catch (error) {
+            console.log(error.message)
+        }
+     }
+
     async DeleteChatAllMessages(channel, moderatorBot) {
         try {
             const [resolvedChannel, resolvedModeratorBot] = await this.GetInfoUser(channel, moderatorBot);
