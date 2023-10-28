@@ -33,21 +33,11 @@ Biblioteca para Chat Bot da Twitch: inclui funções para banir, desbanir, bloqu
     - Depois de registrar o aplicativo, você receberá um Client-ID único. Anote este Client-ID, pois você precisará dele para fazer solicitações à plataforma da Twitch.
 
 ## Passo 3: Autorização e Geração do Token
-- Neste passo, você irá utilizar o Client-ID que registrou no passo anterior para gerar um token de acesso que será utilizado para fazer solicitações à plataforma da Twitch. Siga as instruções abaixo:
-  - Abra seu navegador e acesse o URL de autorização.
-  - Na URL a seguir, substitua "SEU_CLIENT_ID_AQUI" pelo Client-ID que você registrou anteriormente e "SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP" pela URL do seu aplicativo que você cadastrou:
+- Neste passo, você utilizará o Client-ID que registrou na etapa anterior para gerar um token de acesso. Esse token será usado para fazer solicitações à plataforma da Twitch. Para simplificar, pegaremos o token diretamente a partir da URL de redirecionamento. O módulo utiliza essas permissões:
     ```
-    https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=SEU_CLIENT_ID_AQUI&redirect_uri=SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP&scope=chat:read+chat:edit+channel:moderate+whispers:read+whispers:edit+channel_editor+moderator:manage:banned_users+moderation:read+moderator:manage:banned_users+moderator:manage:chat_messages+moderator:read:chatters+moderator:manage:blocked_terms+moderator:manage:chat_messages
+    https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=SEU_CLIENT_ID_AQUI&redirect_uri=SUA_URL_QUE_FOI_COLOCADA_NO_SEU_APP&scope=chat:read+chat:edit+channel:moderate+whispers:read+whispers:edit+channel_editor+moderator:manage:banned_users+moderation:read+moderator:manage:banned_users+moderator:manage:chat_messages+moderator:read:chatters+moderator:manage:blocked_terms+moderator:manage:chat_messages+moderator:manage:chat_settings+user:manage:whispers+channel:manage:broadcast+user:read:email
     ```
-  - A URL formatada irá direcioná-lo para uma página de autorização da Twitch. Faça login com sua conta.
-  - Após autorizar o acesso, você será redirecionado para a URL que você especificou no seu aplicativo, contendo o token de acesso na URL.
-  - Copie o token da URL, ele estará após o trecho "#access_token=", como na imagem abaixo:
-
-    ![Imagem do Twitch](https://i.imgur.com/80qOIHt.jpg)
-
-## Passo 4: Token de Acesso
-- Após a autorização bem-sucedida e o redirecionamento para a URL especificada no seu aplicativo, você receberá um corpo de resposta contendo o seu token de acesso. Esse token é essencial para realizar ações com o seu bot e utilizar as funcionalidades deste módulo. É importante manter esse token em sigilo e não compartilhá-lo com terceiros, pois ele concede acesso às funcionalidades do seu aplicativo.
-
+  
 # Próxima Etapa: Como vou utilizar esse Módulo agora?
 - Antes de começar a usar as funcionalidades de moderação do módulo, você precisa configurar um código base para se conectar ao chat do canal específico e receber eventos de mensagens do chat. Siga os passos abaixo:
 
