@@ -129,6 +129,18 @@ twitchModeration.AddBlockedTerm('canal', 'bot', 'palavraBloqueada');
 twitchModeration.RemoveBlockedTerm('canal', 'bot', 'palavra1', 'palavra2');
 ```
 
+## RemoveMessageChat(channel, moderatorBot, tags.id)
+- Apaga uma mensagem especifica do chat.
+``` javascript
+twitchModeration.RemoveMessageChat('canal', 'bot', tags.id)
+```
+
+## TimeoutUser(channel, moderatorBot)
+- O usuário é temporariamente silenciado por um período específico antes de poder enviar mensagens novamente.
+``` javascript
+twitchModeration.TimeoutUser('canal', 'bot', tags.id, 30, motivoTimeOut = 'Nada')
+```
+
 ## DeleteChatAllMessages(channel, moderatorBot)
 - Apaga todas as mensagens do chat.
 ``` javascript
@@ -163,4 +175,4 @@ twitchModeration.UpdateChatSettings('canal', 'bot', settings);
 - Envia uma mensagem privada (whisper) para outro usuário. O usúario não pode está com o "sussuro" bloquado, se isso ocorre a mensagem não é enviada.
 ```javascript
 twitchModeration.SendWhisper('modBot', 'user', 'Olá! Como você está?');
-```
+``
