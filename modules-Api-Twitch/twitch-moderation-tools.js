@@ -19,12 +19,33 @@ class TwitchModerationAPI {
         try {
             const userIdPromises = nomeUserTwitch.map(async (nome) => {
                 try {
-                    const result = await axios.get(`https://api.twitch.tv/helix/users?login=${nome}`, {
-                        headers: this.headers,
+                    const result_login = await axios.get(`https://api.twitch.tv/helix/users?login=${nome}`, {
+                        headers: this.headers
                     });
 
-                    const userId = result.data.data.find((user) => user.login === nome);
-                    return userId !== null ? userId.id : null;
+                    const userId = result_login.data.data.find((user) => user.login === nome);
+                    if (userId !== null) {
+                        const result_follow = await axios.get(`https://api.twitch.tv/helix/channels/followers?broadcaster_id=${userId.id}`, {
+                            headers: this.headers
+                        })
+
+                        const follow = result_follow.data.total
+
+                        const response = {
+                            user_id: userId.id,
+                            follows_total: follow,
+                            login: userId.login,
+                            description: userId.description,
+                            img_user: userId.profile_image_url,
+                            view_count: userId.view_count,
+                            email_client: userId.email !== undefined ? userId.email : "Token de email inválido.",
+                            created: userId.created_at
+                        }
+
+                        return response
+                    } else {
+                        throw new Error
+                    }
                 } catch (err) {
                     throw err;
                 }
@@ -52,6 +73,26 @@ class TwitchModerationAPI {
             return result.data.data[0]
         } catch (error) {
             return error.response.data.message
+        }
+    }
+
+    async TimeoutUser(channel, moderatorBot, userID, durationTimeOut, motivoTimeOut = 'Nada') {
+        try {
+            const [resolvedChannel, resolvedModeratorBot] = await this.GetInfoUser(channel, moderatorBot)
+
+            const responseTwitch = await axios.post(`https://api.twitch.tv/helix/moderation/bans?broadcaster_id=${resolvedChannel}&moderator_id=${resolvedModeratorBot}`, {
+                data: {
+                    user_id: userID,
+                    duration: durationTimeOut,
+                    reason: motivoTimeOut
+                }
+            }, {
+                headers: this.headers
+            })
+
+            return responseTwitch.data
+        } catch (error) {
+            console.log(error.message);
         }
     }
 
@@ -125,7 +166,7 @@ class TwitchModerationAPI {
         }
     }
 
-     async RemoveMessageChat(channel, moderatorBot, messageID) {
+    async RemoveMessageChat(channel, moderatorBot, messageID) {
         try {
             const [resolvedChannel, resolvedModeratorBot] = await this.GetInfoUser(channel, moderatorBot);
 
@@ -137,7 +178,7 @@ class TwitchModerationAPI {
         } catch (error) {
             console.log(error.message)
         }
-     }
+    }
 
     async DeleteChatAllMessages(channel, moderatorBot) {
         try {
