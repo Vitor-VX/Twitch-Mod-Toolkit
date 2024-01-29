@@ -6,8 +6,6 @@ Biblioteca para Chat Bot da Twitch: inclui funções para banir, desbanir, bloqu
 
 - Este módulo se concentra nas funcionalidades de moderação, como banir, desbanir, bloquear palavras, entre outras. Ele fornece as ferramentas necessárias para interagir com a plataforma da Twitch e implementar essas funcionalidades em seu chat bot.
 
-- Lembre-se de que este módulo é uma ferramenta poderosa para aprimorar a moderação e funcionalidades do seu bot na Twitch. Vamos prosseguir com a instalação e configuração para que você possa começar a usar essas funcionalidades em seu projeto.
-
 # Instalação:
 - A instalação fica na pasta `TutorialTokenTwitch`, lá ensino do zero como criar sua aplicação e pegar seu token.
 
@@ -155,7 +153,7 @@ twitchModeration.UpdateChatSettings('canal', 'bot', settings);
 ```javascript
 twitchModeration.SendWhisper('modBot', 'user', 'Olá! Como você está?');
 ```
-## GetChannelId(channelName)
-- Obtém a ID do canal com base no nome do canal.
+## GetGameId(gameName)
+- Obtém a ID e o nome do jogo com base no nome do jogo.
 ```javascript
-const channelId = await twitchModeration.GetChannelId('channelName');
+const gameInfo = await twitchModeration.GetGameId('gameName');
