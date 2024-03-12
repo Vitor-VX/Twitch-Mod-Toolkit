@@ -4,7 +4,7 @@
     "description": "Requisições para API de moderação da Twitch",
     "main": "twitch-moderation-tools.js",
     "dependencies": {
-        "axios": "^0.24.0"
+        "axios": "^0.8.1"
     },
     "author": "Vitor-VX",
     "repository": {
